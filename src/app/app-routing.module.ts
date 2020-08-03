@@ -4,6 +4,7 @@ import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'dashboard'},
   { path: 'page1', component: Page1Component },
@@ -12,7 +13,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: true
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
