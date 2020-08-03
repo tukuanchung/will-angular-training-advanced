@@ -1,3 +1,5 @@
+import { ChartsComponent } from './charts/charts.component';
+import { TablesComponent } from './tables/tables.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,6 +13,8 @@ const routes: Routes = [
   { path: 'page1', component: Page1Component },
   { path: 'page2', component: Page2Component },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'tables', component: TablesComponent},
+  { path: 'charts', component: ChartsComponent},
   { path: '**', component: NotfoundComponent}
 ];
 

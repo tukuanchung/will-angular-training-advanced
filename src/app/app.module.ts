@@ -7,6 +7,8 @@ import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { TablesComponent } from './tables/tables.component';
+import { ChartsComponent } from './charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
     Page1Component,
     Page2Component,
     DashboardComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    TablesComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
