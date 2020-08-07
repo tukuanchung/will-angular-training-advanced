@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BlankComponent } from './pages/blank/blank.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,12 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'tables', component: TablesComponent},
   { path: 'charts', component: ChartsComponent},
+  {
+    path: 'pages',
+    children: [
+      { path: 'blank', component: BlankComponent }
+    ]
+  },
   { path: '**', component: NotfoundComponent}
 ];
 
