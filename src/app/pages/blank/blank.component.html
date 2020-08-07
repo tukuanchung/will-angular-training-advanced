@@ -2,6 +2,7 @@
 <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 
 <pre>Type: {{type}}
+  Name: {{name}}
   Page: {{page}}
   </pre>
 
@@ -13,7 +14,7 @@
 <hr>
 |
 <span *ngFor="let i of [1,2,3,4,5,6,7]">
-  <a [routerLink]="['/pages/blank']"
+  <a [routerLink]="['/pages/blank', type]"
     queryParamsHandling="merge"
       [queryParams]="{ page: i}">{{i}}</a>
 </span>

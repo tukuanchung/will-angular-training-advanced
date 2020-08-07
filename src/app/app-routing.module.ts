@@ -16,13 +16,14 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'tables', component: TablesComponent},
   { path: 'charts', component: ChartsComponent},
-  {
-    path: 'pages',
-    children: [
-      { path: 'blank', component: BlankComponent },
-      { path: 'blank/:type', component: BlankComponent }
-    ]
-  },
+  // {
+  //   path: 'pages',
+  //   children: [
+  //     { path: 'blank', component: BlankComponent },
+  //     { path: 'blank/:type', component: BlankComponent }
+  //   ]
+  // },
+  { path: 'pages', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) },
   { path: '**', component: NotfoundComponent}
 ];
 
