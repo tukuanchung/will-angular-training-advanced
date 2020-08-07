@@ -1,4 +1,20 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 
-<h2>{{type}}</h2>
+<pre>Type: {{type}}
+  Page: {{page}}
+  </pre>
+
+[
+  <span *ngFor="let i of [1,2,3,4,5,6,7]">
+    <button type="button" (click)="goPage(i)">{{i}}</button>
+  </span>
+]
+<hr>
+|
+<span *ngFor="let i of [1,2,3,4,5,6,7]">
+  <a [routerLink]="['/pages/blank']"
+    queryParamsHandling="merge"
+      [queryParams]="{ page: i}">{{i}}</a>
+</span>
+|
