@@ -19,7 +19,8 @@ const routes: Routes = [
   {
     path: 'pages',
     children: [
-      { path: 'blank', component: BlankComponent }
+      { path: 'blank', component: BlankComponent },
+      { path: 'blank/:type', component: BlankComponent }
     ]
   },
   { path: '**', component: NotfoundComponent}
