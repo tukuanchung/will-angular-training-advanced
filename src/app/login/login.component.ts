@@ -8,6 +8,12 @@ export class LoginComponent implements OnInit, OnDestroy  {
 
   constructor() { }
 
+  data = {
+    email: 'tukuanchung@gmail.com',
+    password: 123456,
+    rememberMe: false
+  };
+
   ngOnInit(): void {
     document.body.className = 'bg-gradient-primary';
   }
