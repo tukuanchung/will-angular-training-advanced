@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { ChartsComponent } from './charts/charts.component';
 import { TablesComponent } from './tables/tables.component';
@@ -16,7 +17,7 @@ const routes: Routes = [
     children : [
       { path: '', pathMatch: 'full', redirectTo: 'dashboard'},
       { path: 'page1', component: Page1Component },
-      { path: 'page2', component: Page2Component },
+      { path: 'page2', component: Page2Component, canActivate: [AuthGuard]},
       { path: 'dashboard', component: DashboardComponent },
       { path: 'tables', component: TablesComponent},
       { path: 'charts', component: ChartsComponent},
