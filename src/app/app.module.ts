@@ -15,6 +15,7 @@ import { ChartsComponent } from './charts/charts.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { TwidValidator } from './twid.directive';
+import { Login2Component } from './login2/login2.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TwidValidator } from './twid.directive';
     ChartsComponent,
     LoginComponent,
     LayoutComponent,
-    TwidValidator
+    TwidValidator,
+    Login2Component
   ],
   imports: [
     BrowserModule,

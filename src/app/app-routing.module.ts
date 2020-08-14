@@ -10,6 +10,7 @@ import { Page2Component } from './page2/page2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BlankComponent } from './pages/blank/blank.component';
 import { LayoutComponent } from './layout/layout.component';
+import { Login2Component } from './login2/login2.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   },
 
   { path: 'login', component: LoginComponent },
+  { path: 'login2', component: Login2Component },
   { path: '**', component: NotfoundComponent}
 ];
 
