@@ -9,6 +9,24 @@ export class Login2Component implements OnInit, OnDestroy {
 
   form: FormGroup;
 
+  data = {
+    email: 'will.huang@miniasp.com',
+    pwds: [
+      {
+        password: '1111',
+        rememberMe: true
+      },
+      {
+        password: '222',
+        rememberMe: false
+      },
+      {
+        password: '222',
+        rememberMe: false
+      }
+    ]
+  };
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -35,23 +53,10 @@ export class Login2Component implements OnInit, OnDestroy {
       //   validators: [ Validators.required, Validators.minLength(3)]
       // }),
       // rememberMe: true
-      pwds: this.fb.array([
-        this.fb.group({
-          password: this.fb.control('123123', {
-            validators: [Validators.required, Validators.minLength(3)]
-          }),
-          rememberMe: true
-        }),
-        this.fb.group({
-          password: this.fb.control('123', {
-            validators: [Validators.required, Validators.minLength(3)]
-          }),
-          rememberMe: false
-        })
-
-      ])
+      pwds: this.fb.array([])
 
     });
+    this.resetForm();
   }
 
   ngOnDestroy(): void {
@@ -70,5 +75,21 @@ export class Login2Component implements OnInit, OnDestroy {
       }),
       rememberMe: true
     }));
+  }
+
+  resetForm() {
+    this.fa('pwds').clear();
+
+    const len = this.data.pwds.length;
+    for (let index = 0; index < len; index++) {
+      this.fa('pwds').push(this.fb.group({
+        password: this.fb.control('', {
+          validators: [Validators.required, Validators.minLength(3)]
+        }),
+        rememberMe: true
+      }));
+    }
+
+    this.form.reset(this.data);
   }
 }
