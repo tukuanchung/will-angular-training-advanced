@@ -1,9 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray, AbstractControl, ValidationErrors } from '@angular/forms';
+import { TwidValidator } from '../twid.directive';
 
 @Component({
   templateUrl: './login2.component.html',
-  styleUrls: ['./login2.component.css']
+  styleUrls: ['./login2.component.css'],
+  providers: [TwidValidator]
 })
 export class Login2Component implements OnInit, OnDestroy {
 
@@ -27,7 +29,7 @@ export class Login2Component implements OnInit, OnDestroy {
     ]
   };
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private twid: TwidValidator) { }
 
   ngOnInit(): void {
     document.body.className = 'bg-gradient-primary';
@@ -46,7 +48,11 @@ export class Login2Component implements OnInit, OnDestroy {
 
     this.form = this.fb.group( {
       email: this.fb.control('tukuanchung@gmail.com', {
-          validators : [ Validators.required, Validators.email],
+          validators: [
+            Validators.required,
+            // Validators.email,
+            this.twid.validate
+          ],
           updateOn: 'blur'
       }),
       // password: this.fb.control('123123', {
@@ -92,4 +98,12 @@ export class Login2Component implements OnInit, OnDestroy {
 
     this.form.reset(this.data);
   }
+
+}
+function MyValidator(c: AbstractControl): ValidationErrors {
+    if (c.value.indexOf('ABC') >= 0) {
+      return { my: true };
+    } else {
+      return null;
+    }
 }
